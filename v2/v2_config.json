@@ -1,0 +1,45 @@
+{
+  "seed": 42,
+  "city": "Berlin",
+  "latitude": 52.52,
+  "longitude": 13.405,
+  "start_date": "2021-01-01",
+  "end_date": "2026-08-31",
+  "lookback": 30,
+  "horizon": 7,
+  "train_ratio": 0.7,
+  "validation_ratio": 0.15,
+  "test_ratio": 0.15,
+  "rolling_origins": [
+    "2025-10-25",
+    "2025-12-24",
+    "2026-02-23",
+    "2026-04-24",
+    "2026-06-24",
+    "2026-08-24"
+  ],
+  "best_lstm_config": {
+    "lstm1_units": 128,
+    "lstm2_units": 64,
+    "dropout_rate": 0.3,
+    "dense_units": 16,
+    "learning_rate": 0.0005
+  },
+  "best_lstm_epochs": 12,
+  "best_transformer_config": {
+    "model_dim": 64,
+    "num_heads": 2,
+    "ff_dim": 192,
+    "num_blocks": 2,
+    "dropout_rate": 0.1,
+    "dense_units": 96,
+    "learning_rate": 0.0005
+  },
+  "best_transformer_epochs": 9,
+  "best_prophet_config": {
+    "changepoint_prior_scale": 0.1,
+    "seasonality_prior_scale": 1.0,
+    "seasonality_mode": "additive",
+    "changepoint_range": 0.8
+  }
+}
