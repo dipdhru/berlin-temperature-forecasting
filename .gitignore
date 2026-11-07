@@ -42,3 +42,10 @@ data/processed/
 # Keras Tuner trial checkpoints
 tuner_results/
 v2_tuner/
+
+# Pipeline outputs and cached downloads
+runs/
+data/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
