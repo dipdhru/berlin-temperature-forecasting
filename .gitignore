@@ -38,3 +38,7 @@ data/processed/
 # Temporary files
 *.tmp
 *.log
+
+# Keras Tuner trial checkpoints
+tuner_results/
+v2_tuner/
