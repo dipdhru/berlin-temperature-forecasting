@@ -63,3 +63,6 @@ hyperparameter tuning, forecasting, and evaluation pipeline.
 ## Author
 
 Dipanshu Singh
+## Thesis
+
+The full write-up is in [thesis.pdf](thesis.pdf).
