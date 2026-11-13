@@ -1,6 +1,6 @@
 """Experiment configuration.
 
-Defaults reproduce the final thesis run (V2.1). The tuned hyperparameters are
+Defaults reproduce the final published run (V2.1). The tuned hyperparameters are
 read from ``results/config.json`` so the pipeline and the app use exactly the
 settings that produced the reported results.
 """
@@ -75,7 +75,7 @@ class Config:
     best_transformer_config: dict = field(default_factory=lambda: dict(DEFAULT_TRANSFORMER_CONFIG))
     best_transformer_epochs: int = 20
     best_prophet_config: dict = field(default_factory=lambda: dict(DEFAULT_PROPHET_CONFIG))
-    # The thesis run never trains the networks for fewer than 10 epochs.
+    # The published run never trains the networks for fewer than 10 epochs.
     min_train_epochs: int = 10
 
     @property

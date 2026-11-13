@@ -1,4 +1,4 @@
-"""Draw the README figures from the saved thesis results (no training needed)."""
+"""Draw the README figures from the saved published results (no training needed)."""
 
 from __future__ import annotations
 

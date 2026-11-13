@@ -2,7 +2,7 @@
 
 Examples
 --------
-Reproduce the thesis evaluation with the saved hyperparameters (slow on CPU):
+Reproduce the published evaluation with the saved hyperparameters (slow on CPU):
 
     python scripts/run_pipeline.py
 
@@ -14,7 +14,7 @@ Re-tune everything from scratch:
 
     python scripts/run_pipeline.py --tune
 
-Results go to ``runs/<timestamp>/`` so the published thesis results in
+Results go to ``runs/<timestamp>/`` so the published results in
 ``results/`` are never overwritten by accident.
 """
 
@@ -40,7 +40,7 @@ def parse_args() -> argparse.Namespace:
         "--config",
         type=Path,
         default=RESULTS_DIR / "config.json",
-        help="config with tuned hyperparameters (default: the thesis run)",
+        help="config with tuned hyperparameters (default: the published run)",
     )
     p.add_argument("--tune", action="store_true", help="re-run hyperparameter search first")
     p.add_argument("--models", nargs="+", default=list(ALL_MODELS), choices=ALL_MODELS)

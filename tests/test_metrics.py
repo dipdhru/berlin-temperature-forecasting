@@ -25,27 +25,27 @@ def test_mase_constant_reference_is_nan():
 
 
 @pytest.fixture(scope="module")
-def thesis_predictions() -> pd.DataFrame:
+def published_predictions() -> pd.DataFrame:
     return pd.read_csv(RESULTS_DIR / "rolling_predictions.csv", parse_dates=["origin"])
 
 
-def test_reproduces_thesis_overall_metrics(thesis_predictions):
+def test_reproduces_published_overall_metrics(published_predictions):
     """The package recomputes the published table from the saved predictions."""
     published = pd.read_csv(RESULTS_DIR / "overall_metrics.csv").set_index("Model")
-    ours = metrics.overall_table(thesis_predictions).set_index("Model")
+    ours = metrics.overall_table(published_predictions).set_index("Model")
     # MASE needs the training series, which is not stored; check everything else.
     cols = ["MAE", "RMSE", "R2", "sMAPE"]
     pd.testing.assert_frame_equal(ours.loc[published.index, cols], published[cols], rtol=1e-9)
 
 
-def test_reproduces_thesis_horizon_metrics(thesis_predictions):
+def test_reproduces_published_horizon_metrics(published_predictions):
     published = pd.read_csv(RESULTS_DIR / "horizon_metrics.csv").set_index(["model", "horizon"])
-    ours = metrics.horizon_table(thesis_predictions).set_index(["model", "horizon"])
+    ours = metrics.horizon_table(published_predictions).set_index(["model", "horizon"])
     cols = ["MAE", "RMSE", "R2", "sMAPE"]
     pd.testing.assert_frame_equal(ours.loc[published.index, cols], published[cols], rtol=1e-9)
 
 
-def test_reproduces_thesis_bootstrap_intervals(thesis_predictions):
+def test_reproduces_published_bootstrap_intervals(published_predictions):
     published = pd.read_csv(RESULTS_DIR / "origin_bootstrap_ci.csv")
-    ours = metrics.bootstrap_ci(metrics.origin_table(thesis_predictions), seed=42)
+    ours = metrics.bootstrap_ci(metrics.origin_table(published_predictions), seed=42)
     pd.testing.assert_frame_equal(ours, published, rtol=1e-9, check_dtype=False)

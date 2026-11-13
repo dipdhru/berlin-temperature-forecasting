@@ -9,9 +9,9 @@
 **Can deep learning beat simple rules at forecasting next week's temperature?** This project
 compares a **Bidirectional LSTM**, a **Transformer** and **Prophet** for 1–7 day forecasts of
 Berlin's daily mean temperature, against two naive baselines, under a strict leakage-controlled
-rolling-origin evaluation. It is the code behind my MSc Data Science & AI thesis.
+rolling-origin evaluation.
 
-📄 [Thesis (PDF)](thesis.pdf) · 🌡️ [Live forecast app](#live-forecast-app) · 🔁 [Reproduce the results](#reproduce-the-results)
+🌡️ [Live forecast app](#live-forecast-app) · 🔁 [Reproduce the results](#reproduce-the-results)
 
 ## Key results
 
@@ -81,7 +81,7 @@ cd berlin-temperature-forecasting
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 
-pytest                                          # 19 tests, incl. re-deriving the thesis tables
+pytest                                          # 19 tests, incl. re-deriving the published tables
 python scripts/run_pipeline.py --max-origins 3  # quick check, ~3 minutes
 python scripts/run_pipeline.py                  # full 44-origin evaluation, ~40 min on a laptop CPU
 python scripts/run_pipeline.py --tune           # also re-run hyperparameter search
@@ -89,7 +89,7 @@ python scripts/make_figures.py                  # redraw the README figures
 ```
 
 Pipeline runs write to `runs/<timestamp>/`, so the published results in `results/` are never
-overwritten. A rerun gives numbers close to, but not identical with, the thesis, for two reasons:
+overwritten. A rerun gives numbers close to, but not identical with, the published results, for two reasons:
 
 - **Data revisions.** Open-Meteo replaces its preliminary reanalysis (ERA5T) with final ERA5
   values a few months later. Some late-2025 test days have since moved by up to ±0.2 °C. The
@@ -97,7 +97,7 @@ overwritten. A rerun gives numbers close to, but not identical with, the thesis,
 - **Hardware.** Neural network training is not bit-for-bit deterministic across CPUs and GPUs.
 
 The tests check the part that *is* exactly reproducible: recomputing every published metric and
-confidence interval from the saved thesis predictions.
+confidence interval from the saved predictions.
 
 ## Project structure
 
@@ -114,13 +114,12 @@ confidence interval from the saved thesis predictions.
 │   ├── metrics.py              MAE/RMSE/R²/sMAPE/MASE, bootstrap intervals
 │   └── plots.py                result figures
 ├── scripts/                    run_pipeline.py, make_figures.py
-├── tests/                      unit tests + thesis reproduction tests
-├── results/                    thesis run: predictions, metrics, tuned config
+├── tests/                      unit tests + result reproduction tests
+├── results/                    published run: predictions, metrics, tuned config
 ├── notebooks/
-│   ├── V2.1_final.ipynb        original thesis notebook
+│   ├── V2.1_final.ipynb        original research notebook
 │   └── archive/                earlier iterations (V2, V1)
-├── docs/figures/
-└── thesis.pdf
+└── docs/figures/
 ```
 
 ## Author

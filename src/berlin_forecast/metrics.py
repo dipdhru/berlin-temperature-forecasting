@@ -1,4 +1,4 @@
-"""Forecast metrics and the summary tables reported in the thesis."""
+"""Forecast metrics and the summary tables reported in the README."""
 
 from __future__ import annotations
 
