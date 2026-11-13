@@ -1,4 +1,4 @@
-"""Live 7-day Berlin temperature forecast from the thesis models.
+"""Live 7-day Berlin temperature forecast from the compared models.
 
 Run locally:  streamlit run app/streamlit_app.py
 """
@@ -53,10 +53,10 @@ def load_nwp(start: date, end: date) -> pd.Series | None:
 # --- Header -----------------------------------------------------------------
 st.title("🌡️ Berlin 7-day temperature forecast")
 st.markdown(
-    "Daily mean temperature for the next week from the models compared in my MSc thesis: "
+    "Daily mean temperature for the next week from the models compared in this project: "
     "a **Bidirectional LSTM**, **Prophet**, and an optional **Transformer**, retrained on the "
     f"last {HISTORY_YEARS} years of Open-Meteo data. "
-    f"[Code and thesis on GitHub]({REPO_URL})"
+    f"[Code and full evaluation on GitHub]({REPO_URL})"
 )
 
 with st.sidebar:

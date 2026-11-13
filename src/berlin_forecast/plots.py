@@ -1,4 +1,4 @@
-"""Static result figures for the README and thesis.
+"""Static result figures for the README.
 
 Learned models get the three colour slots (validated for colour-vision
 deficiency); naive baselines are drawn as grey reference lines so the eye
